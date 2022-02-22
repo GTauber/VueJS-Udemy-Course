@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ title }}</p> 
+    <p>{{helloWorld()}}</p>
+    <a v-bind:href="linkedIn">Vue-LinkedIn</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Simple Vue',
+            linkedIn: 'https://www.linkedin.com/in/gabriel-tauber-de-a-figueiredo-353002202/'
+        },
+        methods: {
+            helloWorld: function() {
+                return 'go for vue Developer!'
+            }
+        }
+    })
+</script>

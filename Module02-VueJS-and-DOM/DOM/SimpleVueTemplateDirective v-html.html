@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ title }}</p> 
+    <p>{{helloWorld()}}</p>
+    <a v-html="linkedIn">Vue-LinkedIn</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Simple Vue',
+            linkedIn: '<h1><a href="https://www.linkedin.com/in/gabriel-tauber-de-a-figueiredo-353002202/">LinkedIn</a></h1>'
+        },
+        methods: {
+            helloWorld: function() {
+                this.title = 'change title to this, but v-once block reloads'
+                return 'go for vue Developer!'
+            }
+        }
+    })
+</script>

@@ -1,0 +1,46 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <h1>Counter:</h1>
+    <button v-on:click="increaseValue">Increase Counter</button>
+    <h1>{{counter}}</h1>
+    <h1>{{biggerThan10}}</h1>
+
+    <div>
+        <h4>Here we have a watch value: counter 2.</h4>
+        <button v-on:click="counter2++"></button>
+        <h1>{{counter2}}</h1>
+        <p><h2>Last Number on Counter 2: {{lastCounter2Number}}</h2></p>
+    </div>
+</div>
+
+<script>
+    new Vue({
+    el: '#app',
+    data: {
+        counter: 0,
+        counter2: 0,
+        lastCounter2Number: 0,
+    },
+    computed: {
+        biggerThan10() {
+            return this.counter > 9 ? 'Counter bigger than 10' : 'Increase until 10'
+        }
+    },
+    watch: {
+        counter2(newVal, oldVal) {
+            setTimeout(() => {
+                console.log(newVal)
+                console.log(oldVal)
+                this.counter2 = 0
+            }, 4000)
+            this.lastCounter2Number = oldVal
+        }
+    },
+    methods: {
+        increaseValue(e) {
+            this.counter++
+        }
+    }
+})
+</script>

@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="eventsKey">
+    <h1>{{name}}</h1>
+    <div>
+        <input type="text" v-on:keyup.enter.alt.ctrl="keyEnterEvent($event)" v-bind:value="keyEvent">
+    </div>
+    <p v-on:mousemove="mouseLocation($event)">Mouse: X = {{x}} Y = {{y}}
+        <span v-on:mousemove.stop="">Stop Marking mouse here with modifer STOP</span>
+    </p>
+    </br>
+    <a v-on:click.prevent="" href="https://www.linkedin.com/in/gabriel-tauber-de-a-figueiredo-353002202/">Link with prevent modifer</a>
+    <img v-bind:src="img" alt="beautiful">
+</div>
+
+<script>
+    new Vue({
+        el: '#eventsKey',
+        data: {
+            img: 'https://lh3.googleusercontent.com/fOeCT5FoiwqblRhfZtj13mHUB53dXVakJsqVAWRKqhupTEtlmFVhrUotE5-Kic2ZI8A9xVwCV4dmVR1OoW'
+                + 'AzozpbSkpi8xAW5IkWBOzc7HZOTI0o3lvPniSoQDSylqtMdUXSS3FhWARU9JKyBtUTzSCrn3io7uCPWWuNbksXsBP0BSSg4H2xurJv3YVUUzcLXcXxK6YS2n8QH'
+                + '5oH1eO5LKjuvh1G76znNs0Z9JKxBVtMZeOqbe7EpiaCwMZp2eiidR-dcOGinedj_v_a2VKe8BWPWaWQu5fAXzN1YYQu6qVxwKJzGR1Xctt7Eyn0ECZ3yt1Sry'
+                + '8PcN-XVjeKynTq59NU2TEBHLJEz9vHstuWBA-vOjVo6KJAxZgXyX1h_7WVuhoJwGdln8dh0DLmP7TpVFuv_K8nP2pnY3yfB4KvOOglvijJLjteQq8Bgrp5reWoN'
+                + 'GZfavC1on6Y2et5XStKT9hq6_n9lKcHEABRKsHF_1ChNt7RdxP_poWSPDliaOub9J-gDNDHnbZFZkkH71xx-KNKxq701xP8MLjbDUPVwgTaMMEYHP69UV1LvAx1'
+                + 'PVpC8LwpW9ZV2J6b0SML9DW47uxaqq_qkO34m9B9JSqo5AwoX4JDsADBTDBRwSOm2Lbe1EOj9HkAKHveRsPNusHgeRniFoiMd8t9B_ybudI5Q_Td3btkMLgD4L'
+                + 'yRFYIuT1Jejyx0RQeKc7HYeD8UpY7JSEU=w533-h710-no?authuser=0',
+            name: 'Gabriel',
+            x: 0,
+            y: 0,
+            keyEvent: 'Alt + Enter to proceed.',
+        },
+        methods: {
+            keyEnterEvent(e) {
+                alert("pressed enter + alt")
+            },
+            mouseLocation(e) {
+                this.x = e.clientX
+                this.y = e.clientY
+            }
+        }
+    })
+</script>

@@ -1,0 +1,41 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="Exercise02">
+    <!-- 1) Show Alert on click -->
+    <div>
+        <button v-on:click="alertButton($event)">Alert</button>
+    </div>
+    
+    <!-- 2) Listener keydown and save the value at propertie data. (tip: event.target.value) -->
+    <div>
+        <input type="text" v-on:keydown.enter="saveValue($event)">
+        <p>{{ value }}</p>
+    </div>
+    
+    <!-- 3) Adjust ex2 to only executes keydown when te key is enter -->
+    <div>
+        <input type="text" v-on:input="saveValueWithoutAlert">
+        <p>{{ value }}</p>
+    </div>
+</div>
+<script>
+    new Vue({
+    el: '#Exercise02',
+    data: {
+        value: '0'
+    },
+    methods: {
+        alertButton(e) { 
+            alert("Clicked")
+        },
+        saveValue(e) {
+            console.log(event)
+            this.value = e.target.value
+            alert("Ok.")
+        },
+        saveValueWithoutAlert(e) {
+            this.value = e.target.value
+        }
+    }
+})
+</script>

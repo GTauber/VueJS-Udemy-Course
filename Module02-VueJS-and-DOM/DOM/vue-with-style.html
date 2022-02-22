@@ -1,0 +1,62 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<style>
+    #app {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+    }
+
+    .c1 {
+        background-color: red;
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .c3 {
+        background-color: black;
+    }
+</style>
+
+<div id="app">
+    <div class="boxes">
+
+        <!-- <div class="demo" @click="applyC1 = !applyC1" :class="{c1: applyC1}"></div>
+        <div class="demo"></div>
+        <div class="demo"></div> -->
+        <div>
+            <div class="demo" :style="{'background-color': color}"></div>
+            <div class="demo" :style="[myStyle, {height: heightValue}]"></div>
+            <div class="demo"></div>
+        </div>
+    </div>
+    <input type="text" v-model="color">
+    <input type="text" v-model="widthComputed">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            color: 'red',
+            applyC1: false,
+            heightValue: 20,
+            widthComputed: 20
+        },
+        computed: {
+            myStyle() {
+                return {
+                    'background-color': this.color,
+                    width: `${this.widthComputed}px`
+                }
+            }
+        }
+    })
+</script>

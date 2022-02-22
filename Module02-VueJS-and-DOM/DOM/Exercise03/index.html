@@ -1,0 +1,18 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="exercise04">
+    <!-- 1) Show in result the text: "Wrong Value" while value is 
+        different than 37 - "value" value is altered by the following buttons.
+        show message "Correct Value" when value = 37" -->
+        
+    <!-- 2) Listen to changes in result and set value back to 0
+        after 5 secs (tip: setTimeout(..., 5000) -->            
+    <div>
+        <p>Value: {{ value }}</p>
+        <button @click="value += 5">Sum 5</button>
+        <button @click="value += 1">Sum 1</button>
+        <p>{{ result }}</p>
+    </div>
+
+</div>
+<script src="app.js"></script>

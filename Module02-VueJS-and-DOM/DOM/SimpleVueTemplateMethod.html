@@ -1,0 +1,20 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ title }}</p> 
+    <p>{{helloWorld()}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'testing'
+        },
+        methods: {
+            helloWorld: function() {
+                return 'go for vue Developer!'
+            }
+        }
+    })
+</script>

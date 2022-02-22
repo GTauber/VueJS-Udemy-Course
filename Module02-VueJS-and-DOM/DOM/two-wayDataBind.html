@@ -1,0 +1,79 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="events">
+    <p>{{namePlusAge()}}</p> <!--you can also use this: ---|> ( name + " is " + age + " years old" )-->
+    
+    <!-- Age multiplied by 3 -->
+    <p>{{age * 3}}</p>
+
+    <input type="text" v-model="counter">
+
+    <h1>{{ counter }}</h1>
+
+    <button v-on:click="increaseCounter($event)">Increase</button>
+    <h3>{{biggertThan10}}</h3>
+    <div>
+        <h4 v-on:mousemove="UpdateMousePosition($event)">
+            MouseX: {{locX}}, MouseY:{{locY}}
+            <span v-on:mousemove.stop="">Stop mouse location here.</span>
+        </h4>
+
+    </div>
+    
+    <!-- Generate Random -->
+    <p v-once>{{ generateRandom() }}</p>
+    
+    <!--  img -->
+    <div>
+        <img v-bind:src="beauty" height="400">
+    </div>
+    
+    <!-- Initialize the attribute with your name (use "value" attribute) -->
+    <div>
+        <input type="text" v-bind:value="name">
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#events',
+        data: {
+            name: 'Gabriel',
+            age: '21',
+            beauty: 'https://lh3.googleusercontent.com/fOeCT5FoiwqblRhfZtj13mHUB53dXVakJsqVAWRKqhupTEtlmFVhrUotE5-Kic2ZI8A9xVwCV4dmVR1OoW'
+           + 'AzozpbSkpi8xAW5IkWBOzc7HZOTI0o3lvPniSoQDSylqtMdUXSS3FhWARU9JKyBtUTzSCrn3io7uCPWWuNbksXsBP0BSSg4H2xurJv3YVUUzcLXcXxK6YS2n8QH'
+           + '5oH1eO5LKjuvh1G76znNs0Z9JKxBVtMZeOqbe7EpiaCwMZp2eiidR-dcOGinedj_v_a2VKe8BWPWaWQu5fAXzN1YYQu6qVxwKJzGR1Xctt7Eyn0ECZ3yt1Sry'
+           + '8PcN-XVjeKynTq59NU2TEBHLJEz9vHstuWBA-vOjVo6KJAxZgXyX1h_7WVuhoJwGdln8dh0DLmP7TpVFuv_K8nP2pnY3yfB4KvOOglvijJLjteQq8Bgrp5reWoN'
+           + 'GZfavC1on6Y2et5XStKT9hq6_n9lKcHEABRKsHF_1ChNt7RdxP_poWSPDliaOub9J-gDNDHnbZFZkkH71xx-KNKxq701xP8MLjbDUPVwgTaMMEYHP69UV1LvAx1'
+           + 'PVpC8LwpW9ZV2J6b0SML9DW47uxaqq_qkO34m9B9JSqo5AwoX4JDsADBTDBRwSOm2Lbe1EOj9HkAKHveRsPNusHgeRniFoiMd8t9B_ybudI5Q_Td3btkMLgD4L'
+           + 'yRFYIuT1Jejyx0RQeKc7HYeD8UpY7JSEU=w533-h710-no?authuser=0',
+           counter: '0',
+           increaseValue: '0',
+           locX: '0',
+           locY: '0'
+        },
+        computed: {
+            biggertThan10() {
+               return this.counter > 9 ? "Counter is now bigger than 10" : "Increase counter until 10"
+            }
+        },
+        methods: {
+            UpdateMousePosition(event) {
+                this.locX = event.clientX
+                this.locY = event.clientY
+
+            },
+
+            namePlusAge: function() {
+                return this.name + " is " + this.age + " years old";
+            },
+            generateRandom: function() {
+                return Math.random();
+            },
+            increaseCounter(event) {
+
+                console.log(event)
+               return  this.counter++
+            }
+        }
+    })
+</script>
