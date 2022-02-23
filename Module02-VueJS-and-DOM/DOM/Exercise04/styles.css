@@ -35,3 +35,14 @@
 .ex4BlueBackground {
 	background-color: blue;
 }
+
+.ex5Bar {
+	width: 250px;
+	height: 25px;
+	border: 2px solid black;
+}
+
+.ex5Progress {
+	height: 25px;
+	background-color: rebeccapurple;
+}

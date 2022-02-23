@@ -1,0 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <h1>Login page</h1>
+
+    <template v-if="login">
+        <h2>Succeful loged in</h2>
+        <h3 v-if="name != ''">Hey {{ name }} {{lastName}}</h3>
+        <input type="text" @input="saveLastName($event)">
+
+    </template>
+    <p v-else-if="Anonymous">Hey, you are in Anonymous mode.</p>
+    <p v-else>No one loged.
+        <p>Click the button to login</p>
+    </p>
+
+    <button @click="login = !login">{{ !login ? 'Log-in' : 'Sign-out'}}</button>
+    <input type="checkbox" v-model="Anonymous">
+    <hr>
+    <footer v-show="login">VueJs Development</footer>
+    <footer v-show="!login"> VueJs no Loged user </footer>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            login: false,
+            name: 'Gabriel',
+            lastName: '',
+            Anonymous: false,
+        },
+        methods: {
+            saveLastName(e) {
+                console.log(e)
+                this.lastName = e.target.value
+            }
+        }
+    })
+</script>

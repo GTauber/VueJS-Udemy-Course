@@ -1,0 +1,58 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <h1>Login page</h1>
+
+    <template v-if="login">
+        <h2>Succeful loged in</h2>
+        <h3 v-if="name != ''">Hey {{ name }} {{lastName}}</h3>
+        <input type="text" @input="saveLastName($event)">
+    </template>
+    <p v-else-if="Anonymous">Hey, you are in Anonymous mode.</p>
+    <p v-else>No one loged.
+        <p>Click the button to login</p>
+    </p>
+
+    <template v-if="login">
+        <ul v-for="people in peoples">
+            <li v-for="(attributes, key, index) in people">{{index}} - {{key}}: {{attributes}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(color, index) in colors" :key="color">
+                {{index}}- {{color}}
+           </li>
+        </ul>
+        <button @click="colors.push('RebeccaPurple')">Add Rebecca</button>
+    </template>
+
+    <button @click="login = !login">{{ !login ? 'Log-in' : 'Sign-out'}}</button>
+    <input type="checkbox" v-model="Anonymous">
+    <hr>
+    <footer v-show="login">VueJs Development</footer>
+    <footer v-show="!login"> VueJs no Loged user </footer>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            login: false,
+            name: 'Gabriel',
+            lastName: '',
+            Anonymous: false,
+            peoples: [
+                { name: 'Gabriel', lastName: 'Tauber', age: '21' },
+                { name: 'Rebecca', lastName: 'Tauber', age: '18'},
+                { country: 'Brasil', state: 'sp', city: 'campinas'}
+            ],
+            colors: ['white', 'red', 'blue'],
+        },
+        methods: {
+            saveLastName(e) {
+                console.log(e)
+                this.lastName = e.target.value
+            }
+        }
+    })
+</script>
