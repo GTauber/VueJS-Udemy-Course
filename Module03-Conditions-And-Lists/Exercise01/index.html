@@ -1,0 +1,52 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<div id="exercise01">
+  <!-- 1) Alternate between v-if and v-show using button, then, open element inspect
+  and evaluete the differences. -->
+  <h2>#01</h2>
+  <div>
+    <button @click="hideDirectives = !hideDirectives">Alternate</button>
+    <p v-if="hideDirectives">v-if Directive</p>
+    <p v-if="hideDirectives">or</p>
+    <p v-show="!hideDirectives">v-show directive</p>
+    <p v-show="!hideDirectives">or</p>
+  </div>
+
+  <!-- 2)Use v-for to render an array of your choise. -->
+  <h2>#02</h2>
+  <ul>
+    <li v-for="(people, i) in peoples">{{i}}- {{people}}</li>
+  </ul>
+  
+  <!-- 3) print every pair of key-value on an object of your choise
+    Also print the index of each item. -->
+  <h2>#03</h2>
+  <ul>
+    <li v-for="(book, key, i) in books">{{i}}) {{key}}: {{book}}</li>
+  </ul>
+  
+  <!-- 4) Imprima o seguinte objeto (somente os valores) e
+    também crie um loop aninhado para o array:
+    {
+			id: 10,
+			nome: 'Maria',
+			notas: [7.67, 8.33, 6.98, 9.21]
+		}
+    (dica: use v-for e v-if na resolução) -->
+  <h2>#04</h2>
+  <ul>
+    <li v-for="stu in student" :array="stu">
+      <template v-if="!Array.isArray(stu)">
+        {{stu}}
+      </template>
+      <template v-else>
+        <ul>
+          <li  v-for="number in stu"> {{number}}</li>
+        </ul>
+      </template>
+      
+    </li>
+  </ul>
+</div>
+<script src="app.js"></script>

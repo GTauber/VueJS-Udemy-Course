@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>StarKiller</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="panel progress">
+            <div class="player">
+
+                <!-- Jedi life Panel control -->
+                <h2>Jedi</h2>
+                <div class="lifeBar">
+                    <div class="playerLifePercentage" :style="playerLifePercentage"></div>
+                </div>
+                <div>
+                    <h3 class="noPadding">Life: {{playerLife}}%</h3>
+                </div>
+            </div>
+            <!-- Enemy life Panel control -->
+            <div class="player">
+                <h2>Vader</h2>
+                <div class="lifeBar">
+                    <div class="enemyLifePercentage" :style="enemyLifePercentage"></div>
+                </div>
+                <div>
+                    <h3 class="noPadding">Life: {{enemyLife}}%</h3>
+                </div>
+            </div>
+                
+        </div>
+
+        <!-- <div class="panel gameResult"></div> -->
+
+        <div class="panel buttons">
+            <!-- <button class="startGame">Start Game</button> -->
+            <template>
+                <button class="button atack" @click="normalAtack()">Atack</button>
+                <button class="button specialAtack">Special Atack</button>
+                <button class="button heal">Heal</button>
+                <button class="button giveUp">GiveUp</button>
+            </template>
+        </div>
+        <div class="panel logs"></div>
+        <div></div>
+    </div>
+</body>
+
+<script src="app.js"></script>
+
+</html>

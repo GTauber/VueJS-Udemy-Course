@@ -1,0 +1,87 @@
+#app {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Font style */
+.noPadding {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+/* Panels: */
+.panel {
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);   
+    height: auto;
+}
+
+
+/* life control */
+.progress {
+    display: flex;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.lifeBar {
+    display: flex;
+    width: 200px;
+    height: 25px;
+    border: 1px solid black;
+}
+
+.playerLifePercentage {
+    background-color: green;
+    width: 10%;
+    height: 100%;
+}
+
+.enemyLifePercentage {
+    background-color: green;
+    width: 20%;
+    height: 100%;
+}
+
+/* Buttons control: */
+
+.buttons {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin-inline: 10px;
+    height: 30px;
+    width: 100px;
+    align-content: center;
+    
+}
+
+.atack {
+    background-color: red;
+    color: white;
+}
+
+.specialAtack {
+    background-color: orange;
+    color: black;
+}
+
+.heal {
+    background-color: green;
+    color: white;
+}
+
+.giveUp {
+    background-color: grey;
+    color: black;
+}
+
