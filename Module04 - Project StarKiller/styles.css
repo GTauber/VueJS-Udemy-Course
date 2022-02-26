@@ -85,3 +85,25 @@
     color: black;
 }
 
+/* Logs */
+.logs {
+    height: 500px;
+   
+}
+
+.log {
+    display: flex;
+    height: auto;
+    width: auto;
+    padding-bottom: 10px;
+    
+}
+
+.itens {
+   /* background-color: green; */
+   flex-direction: column-reverse;
+   padding: 10px;
+   width: 100%;
+   text-align: center;
+}
+

@@ -35,19 +35,43 @@
                 
         </div>
 
-        <!-- <div class="panel gameResult"></div> -->
+            <div class="panel gameResult" v-show="gameEnded == true">
+                <h3>{{result}}</h3>
+            </div>
+
 
         <div class="panel buttons">
-            <!-- <button class="startGame">Start Game</button> -->
-            <template>
-                <button class="button atack" @click="normalAtack()">Atack</button>
-                <button class="button specialAtack">Special Atack</button>
-                <button class="button heal">Heal</button>
-                <button class="button giveUp">GiveUp</button>
+            <template v-if="gameStarted == false">
+                <button class="startGame" @click="gameStarted = !gameStarted, startGame()">Start Game</button>
+            </template>
+            <template v-else>
+                <button class="button atack" @click="normalAtack($event)">Atack</button>
+                <button class="button specialAtack" @click="specialAtack($event)">Special Atack</button>
+                <button class="button heal" @click="heal($event)">Heal</button>
+                <button class="button giveUp" @click="(gameStarted = !gameStarted), giveUp()">GiveUp</button>
             </template>
         </div>
-        <div class="panel logs"></div>
-        <div></div>
+
+        <div class="panel logs">
+            <template v-if="playerLog.length != 0">
+            <div class="log" v-for="logs in playerLog.slice().reverse()">
+                <template v-if="logs.event == 'Heal'">
+                    <div class="itens" 
+                        :style="{'background-color': 'green'}">Jedi has healed: {{logs.healAmount}}</div>
+                </template>
+                <template v-else-if="logs.causedBy == 'Vader'">
+                    <div class="itens" :style="{'background-color': 'red'}">
+                         {{logs.causedBy}} Atacked with a total damage of: {{logs.atkDmg}}
+                        </div>
+                </template>
+                <template v-else>
+                    <div class="itens" :style="{'background-color': 'blue'}">
+                        {{logs.causedBy}} Atacked with a total damage of: {{logs.atkDmg}}
+                       </div>
+                </template>
+            </div>
+        </template>
+        </div>
     </div>
 </body>
 
